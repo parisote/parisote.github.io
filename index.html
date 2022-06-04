@@ -45,7 +45,7 @@
   </div>
   <div id="display">
     <div id="blog_section">
-      <h1>Blog.</h1>
+      <h1>Blog</h1>
       <div id="blogs"></div>
     </div>
     <div id="work">
@@ -129,6 +129,7 @@
         return (document.getElementById("blog_section").style.display =
           "none");
       }
+      console.log(blog)
       for (var i = 0; i < blog.length; i++) {
         $("#blogs").append(`
           <a href="./blog/${blog[i].url_title}/" target="_blank">
