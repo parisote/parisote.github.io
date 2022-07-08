@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Que es una transacción y como eso forma una Blockchain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../index.css"></head>
+  <body>
+    <div id="loading">
+      <div id="spinner"></div>
+    </div>
+    <a href="/" class="go_back"><i class="fas fa-arrow-left"></i></a>
+    <div id="background_overlay"></div>
+    <div id="background" style="background: url(top_image.png) center;"></div>
+    <table id="profile_blog">
+      <tbody>
+        <tr>
+          <td style="width:8vw;"><div id="profile_img_blog"></div></td>
+          <td style="width:52vw;">
+            <div id="username_blog"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="blog-display">
+      <h1 id="blog_title">Que es una transacción y como eso forma una Blockchain</h1>
+      <h2 id="blog_sub_title">a</h2>
+      <div id="blog"><p id="para_1_original"></p><h2>Introducción</h2>
+La tecnología de blockchain o cadena de bloques en castellano fue descrita por primera vez en 1991 pero no fue hasta dos décadas después que se utilizo por primera vez en el mundo real.
+
+Cuando hablamos de blockchain hablamos principalmente de una base de datos que esta distribuida en una red de conformada por muchas computadoras a estas computadoras normalmente se les llama nodos. Justamente esto es una de las principales características y beneficios de las blockchain, su descentralización, quiere decir que muchas computadoras al rededor del mundo tengan esta base de datos y que no haya una sola computadora o empresa que sea la responsable/dueña de esta base de datos.<p></p><p id="para_2_original"></p><h2>Transacciones</h2>
+En blockchain una transacción(denominadas Tx) es una operación entre dos partes que va a quedar registrada en la red de forma inmutable lo que quiere decir es que una vez que es aceptada nada va a poder cambiarla o eliminarla.
+
+El contenido de las transacciones depende un poco de la red, hay algunas que solo permiten transacciones de “activos” (criptomonedas) por ejemplo venta/compra y otras que hasta permiten la subida de archivos digitales o texto.
+
+Normalmente las transacciones son enviadas por usuarios a la red, los nodos de la red validan o rechazan la transacción por distintos tipos de algoritmos de conceso (mas adelante hablaremos de esto) osea, todos los nodos o la mayoría (depende de la red) se ponen de acuerdo sobre la validez de la transacción, y si es aceptada queda guardada en un bloque que almacena varias transacciones.<p></p><img src="img_0.svg+xml" alt="blog image 0" id="img_0_original"><p id="para_3_original"></p><h2>Bloques</h2>
+Como mencionamos anteriormente un bloque esta compuesto por varias transacciones ya aceptadas por los nodos, una vez que el bloque se “completa” de transacciones este pasa a ser guardado en la “base de datos”, la otra parte que tenemos que destacar de un bloque es que este va a tener un hash que lo identifique y también va a almacenar el hash del bloque anterior, para así situarlo en la línea temporal y con este vincular los bloques uno con otros, de acá viene la denominación “cadena de bloques” o blockchain.<p></p><img src="img_1.svg+xml" alt="blog image 1" id="img_1_original"><p id="para_4_original"></p><h2>Nodos</h2>
+La ultima parte importante que nos falta por conocer son los nodos. Los nodos son computadoras interconectadas entre ellas y que forman la red, operan de la misma forma y con las mismas reglas, pueden comunicarse entre ellos y compartir información, y son los encargados de orquestar la información que llega a la red para el correcto funcionamiento de la misma.
+
+Hay distintos tipos de nodos, algunos solo se encargan de validar las transacciones, otros de guardar la información completa de toda la base de datos y otros denominados “ligeros” solo guardan parte de la información.<p></p></div>
+    </div>
+    <div id="footer_blog">
+      <a href="https://github.com/imfunniee" target="_blank">made on earth by a human</a>
+    </div>
+    <script type="text/javascript">
+      setTimeout(function() {
+        document.getElementById("loading").classList.add("animated");
+        document.getElementById("loading").classList.add("fadeOut");
+        setTimeout(function() {
+          document.getElementById("loading").classList.remove("animated");
+          document.getElementById("loading").classList.remove("fadeOut");
+          document.getElementById("loading").style.display = "none";
+        }, 800);
+      }, 1500);
+      $.getJSON("../../config.json", function(user) {
+        var icon = document.createElement("link");
+        icon.setAttribute("rel", "icon");
+        icon.setAttribute("href", user[0].userimg);
+        icon.setAttribute("type", "image/png");
+        document.getElementsByTagName("head")[0].appendChild(icon);
+        document.getElementById(
+          "profile_img_blog"
+        ).style.background = `url('${user[0].userimg}') center center`;
+        document.getElementById(
+          "username_blog"
+        ).innerHTML = `<span style="display:${
+          user[0].name == null || !user[0].name ? "none" : "block"
+        };">${user[0].name}</span>@${user[0].username}<b id="blog_time"></b>`;
+
+        if ((user[0].theme = "dark.css")) {
+          document.querySelector("#background_overlay").style.background =
+            "linear-gradient(0deg, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0.1))";
+        } else {
+          document.querySelector("#background_overlay").style.background =
+            "linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1))";
+        }
+      });
+    </script>
+  
+
+</body></html>
